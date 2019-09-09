@@ -43,13 +43,15 @@ const Login = () => {
               >
                 SIGN IN
               </CustomButton>
-              <CustomButton onClick={signinWithGoogle} isGoogelSignIn={true}>
-                SIGN IN With GOOGLE
-              </CustomButton>
             </div>
           </form>
         )}
       </Form>
+      <div className='buttons'>
+        <CustomButton onClick={signinWithGoogle} isGoogelSignIn={true}>
+          SIGN IN With GOOGLE
+        </CustomButton>
+      </div>
     </div>
   )
 }
