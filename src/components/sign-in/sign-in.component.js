@@ -4,6 +4,7 @@ import isEmail from 'validator/lib/isEmail'
 import FormInput from '../form-input/form-input.component'
 import './sign-in.styles.scss'
 import CustomButton from '../custom-button/custom-button.component'
+import { signinWithGoogle } from '../../firebase/firebase.utils'
 
 const Login = () => {
   const submitForm = async values => {
@@ -35,17 +36,21 @@ const Login = () => {
                 return value.length < 6 ? 'Invalid Password' : undefined
               }}
             />
-            <CustomButton
-              type='submit'
-              disabled={submitting || pristine || !valid}
-            >
-              SIGN IN
-            </CustomButton>
+            <div className='buttons'>
+              <CustomButton
+                type='submit'
+                disabled={submitting || pristine || !valid}
+              >
+                SIGN IN
+              </CustomButton>
+              <CustomButton onClick={signinWithGoogle} isGoogelSignIn={true}>
+                SIGN IN With GOOGLE
+              </CustomButton>
+            </div>
           </form>
         )}
       </Form>
     </div>
   )
 }
-
 export default Login
