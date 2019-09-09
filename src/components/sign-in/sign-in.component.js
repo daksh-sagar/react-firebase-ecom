@@ -4,11 +4,20 @@ import isEmail from 'validator/lib/isEmail'
 import FormInput from '../form-input/form-input.component'
 import './sign-in.styles.scss'
 import CustomButton from '../custom-button/custom-button.component'
-import { signinWithGoogle } from '../../firebase/firebase.utils'
+import { signinWithGoogle, auth } from '../../firebase/firebase.utils'
 
 const Login = () => {
   const submitForm = async values => {
-    console.log(values)
+    const { email, password } = values
+
+    try {
+      await auth.signInWithEmailAndPassword(email, password)
+    } catch (error) {
+      console.log(
+        'Error while signing in with email and password',
+        error.message
+      )
+    }
   }
 
   return (
