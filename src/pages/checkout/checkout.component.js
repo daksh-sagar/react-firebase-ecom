@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../providers/cart/cart.provider'
 import CheckoutItem from '../../components/checkout-item/checkout-item.component'
+import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component'
 
 import './checkout.styles.scss'
 
@@ -29,6 +30,7 @@ const CheckoutPage = () => {
         <CheckoutItem cartItem={cartItem} key={cartItem.id} />
       ))}
       <div className='total'>TOTAL: ${total}</div>
+      {total > 0 && <StripeCheckoutButton price={total} />}
     </div>
   )
 }

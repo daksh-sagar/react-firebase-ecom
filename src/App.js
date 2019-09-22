@@ -13,7 +13,7 @@ import CheckoutPage from './pages/checkout/checkout.component'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import CurrentUserContext from './contexts/current-user/current-user.context'
 
-import './App.css'
+import './App.scss'
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null)
